@@ -3,14 +3,14 @@
 
 const request = require('request');
 
-const req = (arr, i) => {
+const req = (arr, x) => {
   if (i === arr.length) return;
-  request(arr[i], (err, response, body) => {
+  request(arr[x], (err, response, body) => {
     if (err) {
       throw err;
     } else {
       console.log(JSON.parse(body).name);
-      req(arr, i + 1);
+      req(arr, x + 1);
     }
   });
 };
