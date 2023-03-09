@@ -1,17 +1,15 @@
 #!/usr/bin/node
 
-""" A script that prints all characters of a Star Wars movie """
-
 const request = require('request');
 
-const req = (arr, x) => {
-  if (x === arr.length) return;
-  request(arr[x], (err, response, body) => {
+const req = (arr, i) => {
+  if (i === arr.length) return;
+  request(arr[i], (err, response, body) => {
     if (err) {
       throw err;
     } else {
       console.log(JSON.parse(body).name);
-      req(arr, x + 1);
+      req(arr, i + 1);
     }
   });
 };
